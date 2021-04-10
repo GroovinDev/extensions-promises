@@ -15,7 +15,8 @@ describe('Mangakakalot Tests', function () {
      * Try to choose a manga which is updated frequently, so that the historical checking test can 
      * return proper results, as it is limited to searching 30 days back due to extremely long processing times otherwise.
      */
-    var mangaId = "https://manganelo.com/manga/hyer5231574354229";
+    var mangaId = "https://mangakakalot.com/read-wy8rq158524497538";
+    // https://manganelo.com/manga/hyer5231574354229
     // var mangaId = "https://mangakakalot.com/manga/ew923117";
 
     it("Retrieve Manga Details", async () => {
@@ -24,6 +25,9 @@ describe('Mangakakalot Tests', function () {
 
         // Validate that the fields are filled
         let data = details;
+
+        console.log(data.titles)
+
         expect(data.id, "Missing ID").to.be.not.empty;
         expect(data.image, "Missing Image").to.be.not.empty;
         expect(data.status, "Missing Status").to.exist;

@@ -3,7 +3,7 @@ import { parseJsonText } from "typescript";
 
 export const parseMangakakalotMangaDetails = ($: CheerioStatic, mangaId: string): Manga => {
   const panel = $('.manga-info-top')
-  const title = $('h1', panel).first().text() ?? ''
+  const title = $('.manga-info-pic', panel).children().first().attr('alt') ?? ''
   const image = $('.manga-info-pic', panel).children().first().attr('src') ?? ''
   const table = $('.manga-info-text', panel)
   let author = ''
@@ -227,7 +227,7 @@ export const parseSearch = ($: CheerioStatic): MangaTile[] => {
   const items = $('.story_item', panel).toArray();
   for (const item of items) {
     const id = $('a', item).first().attr('href') ?? ''
-    const title = $('.story_name', item).children().first().text()
+    const title = $('img',item).attr('alt') ?? ''
     const subTitle = $('.story_chapter', item).first().text().trim()
     const image = $('img',item).attr('src') ?? ''
     // let rating = '0'

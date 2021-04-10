@@ -4,3 +4,6 @@ Sources were a highly requested feature for Paperback as it allows users to read
 
 ##  Developing A Source
 To find out more about developing a source, check out the extensions common repo [wiki](https://github.com/Paperback-iOS/extensions-common/wiki/Intro-to-Paperback-Sources), use one of the current implementations in the repo as an example, and/or be sure to ask in the [Discord](https://discord.gg/Ny83JV3)!
+
+## Using the serve script
+I use Yarn because for some reason NPM gets mad at the `.` in the `./node_modules/.....` part of the script so I suggest you do the same
