@@ -347,7 +347,7 @@ const headers = {
     "content-type": "application/x-www-form-urlencoded"
 };
 exports.MangakakalotInfo = {
-    version: '2.0.4',
+    version: '2.0.5',
     name: 'Mangakakalot',
     icon: 'mangakakalot.com.png',
     author: 'getBoolean',
@@ -569,7 +569,7 @@ const paperback_extensions_common_1 = require("paperback-extensions-common");
 exports.parseMangakakalotMangaDetails = ($, mangaId) => {
     var _a, _b, _c;
     const panel = $('.manga-info-top');
-    const title = (_a = $('h1', panel).first().text()) !== null && _a !== void 0 ? _a : '';
+    const title = (_a = $('.manga-info-pic', panel).children().first().attr('alt')) !== null && _a !== void 0 ? _a : '';
     const image = (_b = $('.manga-info-pic', panel).children().first().attr('src')) !== null && _b !== void 0 ? _b : '';
     const table = $('.manga-info-text', panel);
     let author = '';
@@ -754,15 +754,15 @@ exports.generateSearch = (query) => {
     return search;
 };
 exports.parseSearch = ($) => {
-    var _a, _b;
+    var _a, _b, _c;
     const manga = [];
     const panel = $('.panel_story_list');
     const items = $('.story_item', panel).toArray();
     for (const item of items) {
         const id = (_a = $('a', item).first().attr('href')) !== null && _a !== void 0 ? _a : '';
-        const title = $('.story_name', item).children().first().text();
+        const title = (_b = $('img', item).attr('alt')) !== null && _b !== void 0 ? _b : '';
         const subTitle = $('.story_chapter', item).first().text().trim();
-        const image = (_b = $('img', item).attr('src')) !== null && _b !== void 0 ? _b : '';
+        const image = (_c = $('img', item).attr('src')) !== null && _c !== void 0 ? _c : '';
         // let rating = '0'
         const time = new Date($('.story_item_right span:nth-child(5)', item).text().replace(/((AM)*(PM)*)/g, '').replace('Updated : ', ''));
         const updated = time.toDateString();
